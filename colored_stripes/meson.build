@@ -9,4 +9,6 @@ shlib = shared_library('cstripes',
   dependencies : [gegl, cairo, math],
   include_directories: [include_directories('.'), inc],
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

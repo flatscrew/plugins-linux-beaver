@@ -13,5 +13,5 @@ shared_library('patterncollection2',
   include_directories: [inc, include_directories('.')],
   name_prefix: '',
   install: true,
-  install_dir: get_option('libdir') / 'gegl-0.4'
+  install_dir: gegl_plugin_dir,
 )

@@ -3,4 +3,6 @@ shared_library('pixel-wheel', 'pixel-wheel.c',
   dependencies : gegl,
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

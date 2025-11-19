@@ -8,4 +8,6 @@ shared_library('cutout', 'cutout.c',
   dependencies : gegl,
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

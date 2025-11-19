@@ -7,5 +7,7 @@ shlib = shared_library('photo2cartoon2', 'photo2cartoon2.c',
   dependencies : gegl,
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )
 

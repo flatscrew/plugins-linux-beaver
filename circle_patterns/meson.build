@@ -11,5 +11,7 @@ shlib = shared_library('circlepatterns',
   c_args : lib_args,
   include_directories: [include_directories('.'), inc],
   dependencies : [gegl, math],
+  install: true,
+  install_dir: gegl_plugin_dir,
   name_prefix : '',
 )

@@ -7,4 +7,6 @@ shlib = shared_library('segment-kmeans-port', 'segment-kmeans-port.c',
   dependencies : [ gegl, math],
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

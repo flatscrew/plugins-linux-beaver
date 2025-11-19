@@ -1,6 +1,4 @@
 # Plugin definition with proper install path
-gegl_plugin_dir = gegl.get_pkgconfig_variable('libdir') / 'gegl-0.4'
-
 shared_module('confetti',
   'confetti.c',
   dependencies: [gegl, math],
@@ -12,5 +10,5 @@ shared_module('confetti',
     '-fPIC'
   ],
   install: true,
-  install_dir: gegl_plugin_dir
+  install_dir: gegl_plugin_dir,
 )

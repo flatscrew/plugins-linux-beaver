@@ -11,6 +11,8 @@ endif
 cairo = dependency('cairo', required : true)
 math =  meson.get_compiler('c').find_library('m', required : false)
 
+gegl_plugin_dir = gegl.get_pkgconfig_variable('libdir') / gegl.name()
+
 inc = include_directories('.')
 
 subdir('action_lines')

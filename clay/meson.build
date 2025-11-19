@@ -6,5 +6,7 @@ shlib = shared_library('clay', 'clay.c',
   c_args : lib_args,
   dependencies : gegl,
   include_directories: inc,
+  install: true,
+  install_dir: gegl_plugin_dir,
   name_prefix : '',
 )

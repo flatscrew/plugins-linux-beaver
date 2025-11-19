@@ -8,4 +8,6 @@ shared_library('brushed_metal_wood', 'brushed_metal_wood.c',
   dependencies : gegl,
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

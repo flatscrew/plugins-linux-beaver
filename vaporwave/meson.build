@@ -9,4 +9,6 @@ lib_args = [
   dependencies : [gegl, cairo, math],
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )

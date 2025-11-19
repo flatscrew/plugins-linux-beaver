@@ -7,10 +7,7 @@ shlib = shared_library('chiselbevel', 'chiselbevel.c',
   dependencies : gegl,
   include_directories: inc,
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )
-
-# Make this library usable as a Meson subproject.
-stroke_dep = declare_dependency(
-  include_directories: inc,
-  link_with : shlib)
 

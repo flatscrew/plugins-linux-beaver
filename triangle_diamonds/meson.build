@@ -11,5 +11,7 @@ shared_library('triangle_diamond',
   dependencies : [gegl, math],
   include_directories: [inc, include_directories('.')],
   name_prefix : '',
+  install: true,
+  install_dir: gegl_plugin_dir,
 )
 
