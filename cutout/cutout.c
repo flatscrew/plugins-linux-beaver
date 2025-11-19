@@ -213,7 +213,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:cut-out",
     "title",       _("Cut Out Text Effect"),
-    "categories",  "Artistic",
+    "categories",  "artistic",
     "reference-hash", "10agg1fkzaz10aavx65421xc254001b2ac",
     "description", _("Cut out text effect using GEGL. "
                      ""),

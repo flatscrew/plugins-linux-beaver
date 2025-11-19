@@ -295,7 +295,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:aura",
     "title",       _("Aura"),
-    "categories",  "Artistic",
+    "categories",  "artistic",
     "reference-hash", "3oudo6vg25ara040vxn3vv5sb2a",
     "description", _("Generate both an Outer Glow and Inner Glow aura-ish effect. Apply filter on duplicate layer above transparent subject/object. Filter is intended to be used with Gimp blend modes HSV Hue, HSL Color and Grain Merge. Filter benefits from the Union Composite Mode when used in transparent backgrounds."
                      ""),

@@ -195,7 +195,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
   gegl_operation_class_set_keys (operation_class,
     "name",               "lb:colorizeluminance",
     "title",              _("Extract and Recolor Luma (Glow)"),
-    "categories",         "Lighting",
+    "categories",         "lighting",
     "reference-hash",     "ffhaaa1kfk11ffacxx3gb10b073c9",
     "license",            "GPL3+",
     "description", _("Somewhat similar to the Bloom filter except you can choose the color. Extract the brightest pixels, recolors them and blur it  them. This filter is meant to be fused with GIMP's blend modes, such as plus mid opacity. If the color is white the Luminance and LCH Lightness blend mode will make it glow. Experiment with various blend modes and see what happens"),

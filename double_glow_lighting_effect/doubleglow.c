@@ -186,7 +186,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",               "lb:doubleglow",
     "title",              _("Double Glow Duel Color Effect"),
-    "categories",         "Artistic",
+    "categories",         "artistic",
     "position-dependent", "true",
     "reference-hash",     "f1bfgec914f0b44da36130b3abb73c9",
     "reference-hashB",    "b11bc33d1089355aad0642b4aca8791",

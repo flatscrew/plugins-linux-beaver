@@ -239,7 +239,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:color-trail",
     "title",       _("Color Fill Trail and MultiStroke (may have trouble in Gimp 2.99/3)"),
-    "categories",  "Artistic",
+    "categories",  "artistic",
     "reference-hash", "41ag1g3b0917avx65493xc254001b2ac",
     "description", _("GEGL Color Fill Trail - Sliding a colors opacity to 0 will hide a trail/stroke."
                      ""),

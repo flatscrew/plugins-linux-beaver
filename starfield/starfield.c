@@ -174,7 +174,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:starfield",
     "title",       _("Starfield"),
-    "categories",  "Aristic",
+    "categories",  "artistic",
     "reference-hash", "45eak6vgah28vf20fno25sb2ac",
     "description", _("Render a Starry Night with GEGL. "
                      ""),

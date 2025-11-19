@@ -163,7 +163,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:pixel-wheel",
     "title",       _("Circular Pixel Stretch"),
-    "categories",  "Artistic",
+    "categories",  "artistic",
     "reference-hash", "2ah15656a238a5112010dc2544142af",
     "description", _("Make a circular pixel stretch effect "
                      ""),

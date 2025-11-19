@@ -162,7 +162,7 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:fog",
     "title",       _("Fog or Cloud Effect"),
-    "categories",  "Generic",
+    "categories",  "generic",
     "reference-hash", "45eaaakk52185001x2001b2hc",
     "description", _("Create a fog or cloud effect using GEGL. "
                      ""),
