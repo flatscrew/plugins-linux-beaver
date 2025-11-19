@@ -1,0 +1,11 @@
+
+# These arguments are only used to build the shared library
+# not the executables that use the library.
+lib_args = ['-DBUILDING_GEGLFILTER']
+
+shared_library('brushed_metal_wood', 'brushed_metal_wood.c',
+  c_args : lib_args,
+  dependencies : gegl,
+  include_directories: inc,
+  name_prefix : '',
+)
