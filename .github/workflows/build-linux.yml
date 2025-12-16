@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y meson ninja-build libgegl-dev makeself
+          sudo apt-get install -y meson ninja-build libgegl-dev libcairo2-dev makeself
 
       - name: Build with Makeself
         run: |
