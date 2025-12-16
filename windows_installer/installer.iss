@@ -14,6 +14,6 @@ DisableProgramGroupPage=yes
 ChangesEnvironment=yes
 
 [Files]
-Source: "..\build\payload\msys64\mingw64\lib\gegl-0.4\*.dll"; \
+Source: "plugins\*.dll"; \
 DestDir: "{localappdata}\gegl-0.4\plug-ins"; \
 Flags: ignoreversion createallsubdirs recursesubdirs

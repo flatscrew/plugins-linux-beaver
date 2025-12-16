@@ -51,6 +51,12 @@ jobs:
         shell: msys2 {0}
         run: DESTDIR=payload ninja -C build install
 
+      - name: Collect plugins
+        shell: msys2 {0}
+        run: |
+          mkdir -p windows_installer/plugins
+          cp build/payload/**/ucrt64/lib/gegl-0.4/*.dll windows_installer/plugins/
+
       - name: Install Inno Setup
         run: choco install innosetup -y
 
