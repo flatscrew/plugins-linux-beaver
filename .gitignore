@@ -1,1 +1,5 @@
 _build/**
+_install/**
+.flatpak-builder/**
+repo/**
+*.run
