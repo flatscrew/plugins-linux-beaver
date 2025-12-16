@@ -1,5 +1,3 @@
-[[TOC]]
-
 # LinuxBeaver GEGL Plugins
 
 A collection of additional **GEGL operations** created by LinuxBeaver, intended for use with **GIMP 3.x**.
