@@ -1,0 +1,77 @@
+name: Build GEGL plugins for Gimp 3.x (Windows)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Configure Git autocrlf
+        run: git config --global core.autocrlf input
+      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Cache MSYS2 packages
+        uses: actions/cache@v4
+        with:
+          path: C:\msys64\var\cache\pacman\pkg
+          key: ${{ runner.os }}-msys2-pkgs-v1
+          restore-keys: |
+            ${{ runner.os }}-msys2-pkgs-
+
+      - name: Install MSYS2 and dependencies
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-gegl
+            mingw-w64-x86_64-meson
+            mingw-w64-x86_64-ninja
+            mingw-w64-x86_64-vala
+            mingw-w64-x86_64-cairo
+
+      - name: Get version
+        id: get_version
+        shell: bash
+        run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+
+      - name: Configure build
+        shell: msys2 {0}
+        run: |
+          meson setup build
+
+      - name: Build plugins
+        shell: msys2 {0}
+        run: DESTDIR=payload ninja -C build install
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+
+      - name: Build Windows installer
+        run: iscc /DVersion=${{ steps.get_version.outputs.version }} windows_installer\installer.iss
+        
+      - name: Upload installer to GitHub Release
+        shell: bash
+        run: |
+          tag="v${{ steps.get_version.outputs.version }}"
+          asset="windows_installer/LinuxBeaverGEGL-${{ steps.get_version.outputs.version }}-Setup-win64.exe"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists — attaching asset..."
+          else
+            echo "Creating new release $tag..."
+            gh release create "$tag" \
+              --title "RasterFlow $tag" \
+              --notes "Automated multi-platform release for RasterFlow $tag"
+          fi
+
+          gh release upload "$tag" "$asset" --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

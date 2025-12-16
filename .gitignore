@@ -3,3 +3,4 @@ _install/**
 .flatpak-builder/**
 repo/**
 *.run
+windows_installer/*.exe
