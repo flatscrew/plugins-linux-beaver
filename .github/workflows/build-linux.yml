@@ -1,0 +1,48 @@
+name: Build GEGL plugins for Gimp 3.x (Flatpak)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-flatpak:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        run: |
+          echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+          
+      - name: Install Makeself
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y makeself
+
+      - name: Build with Makeself
+        run: |
+          ./package-linux.sh
+
+      - name: Upload to GitHub Release
+        run: |
+          tag="v${{ steps.version.outputs.version }}"
+          asset="LinuxBeaverGEGL-${{ steps.version.outputs.version }}.run"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists — attaching asset..."
+          else
+            echo "Creating new release $tag..."
+            gh release create "$tag" \
+              --title "LinuxBeaverGEGL $tag" \
+              --notes "Automated multi-platform release for LinuxBeaver GEGL plugins $tag"
+          fi
+
+          gh release upload "$tag" "$asset" --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
