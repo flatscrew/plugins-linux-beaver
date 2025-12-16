@@ -39,7 +39,7 @@ jobs:
             echo "Creating new release $tag..."
             gh release create "$tag" \
               --title "LinuxBeaverGEGL $tag" \
-              --notes "Automated multi-platform release for LinuxBeaver GEGL plugins $tag"
+              --notes "Automated release for LinuxBeaver GEGL plugins $tag"
           fi
 
           gh release upload "$tag" "$asset" --clobber
