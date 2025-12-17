@@ -15,7 +15,7 @@ Multiple installer variants may exist for the same plugin set.
 ## Installation
 
 ### Windows - GIMP and RasterFlow
-This section describes installation for GIMP on Windows
+This section describes installation for GIMP or RasterFlow on Windows
 (compatible with GIMP 2.x and GIMP 3.x).
 
 Requirements:
