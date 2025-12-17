@@ -357,13 +357,14 @@ static gboolean process (GeglOperation *operation,
         }
         break;
         
-      case GEGL_TRUCHET_NESTED_SQUARES:
+      case GEGL_TRUCHET_NESTED_SQUARES: {
         gfloat center = o->tile_size / 2;
         gfloat angle = flip ? M_PI / 4 : -M_PI / 4;
         draw_rotated_square(out, fg_color, local_x, local_y, o->tile_size, center, center, o->tile_size * 0.8, o->thickness, angle);
         draw_rotated_square(out, fg_color, local_x, local_y, o->tile_size, center, center, o->tile_size * 0.6, o->thickness, angle);
         draw_rotated_square(out, fg_color, local_x, local_y, o->tile_size, center, center, o->tile_size * 0.4, o->thickness, angle);
         break;
+      }
     }
     
     out += 4;
